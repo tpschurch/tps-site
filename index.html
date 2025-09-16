@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TPS — Tour de Prière Semeur</title>
+  <meta name="description" content="Site officiel (version légère) de la TPS — Tour de Prière Semeur : présentation, événements, dons, médias et contact." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;/* slate-900 */
+      --surface:#111827;/* gray-900 */
+      --card:#0b1220;/* deep card */
+      --muted:#94a3b8;/* slate-400 */
+      --text:#e5e7eb;/* gray-200 */
+      --brand:#22d3ee;/* cyan-400 */
+      --brand-2:#a78bfa;/* violet-400 */
+      --accent:#34d399;/* emerald-400 */
+      --danger:#f87171;/* red-400 */
+      --radius:22px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),#020617);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;}
+    a{color:var(--brand)}
+    header{position:sticky;top:0;background:rgba(2,6,23,.75);backdrop-filter:blur(10px);z-index:10;border-bottom:1px solid rgba(255,255,255,.06)}
+    nav{max-width:var(--max);margin:auto;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:14px 16px}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+    .logo-mark{width:28px;height:28px;border-radius:9px;background:conic-gradient(from 180deg,var(--brand),var(--brand-2),var(--accent));box-shadow:0 0 0 3px rgba(255,255,255,.05)}
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap}
+    .navlinks a{padding:8px 12px;border-radius:12px;color:var(--text);text-decoration:none;opacity:.9;border:1px solid rgba(255,255,255,.06)}
+    .navlinks a:hover{opacity:1;background:rgba(255,255,255,.06)}
+    .container{max-width:var(--max);margin:auto;padding:28px 16px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;padding:42px 0}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card.pad{padding:22px}
+    h1{font-size:42px;line-height:1.1;margin:0 0 8px}
+    h2{font-size:28px;margin:26px 0 12px}
+    p{color:var(--text);opacity:.9}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .muted{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:16px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#05101a;text-decoration:none;font-weight:700;border:0}
+    .btn.alt{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
+    .section{padding:22px 0}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);font-size:13px}
+    .list{display:grid;gap:10px;margin:0;padding:0}
+    .list li{list-style:none;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .two-col{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    .stack{display:grid;gap:10px}
+    .progress{height:14px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
+    .progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--brand));width:0}
+    form{display:grid;gap:10px}
+    input,textarea,select{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 14px;color:var(--text)}
+    input::placeholder,textarea::placeholder{color:var(--muted)}
+    .footer{border-top:1px solid rgba(255,255,255,.06);margin-top:28px;padding:22px 0;color:var(--muted)}
+    .tag{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.12);opacity:.9}
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    .media{aspect-ratio:16/9;background:radial-gradient(60% 60% at 50% 40%,rgba(34,211,238,.3),rgba(167,139,250,.15),transparent 70%);border:1px dashed rgba(255,255,255,.15);border-radius:14px;display:grid;place-items:center;color:var(--muted)}
+    @media (max-width:900px){.hero,.two-col,.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo"><span class="logo-mark"></span> TPS — Tour de Prière Semeur</div>
+    <div class="navlinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#tps">La TPS</a>
+      <a href="#leaders">Prophétesse & Pasteur</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#departements">Départements</a>
+      <a href="#dons">Dons</a>
+      <a href="#maison">Maison de Prière</a>
+      <a href="#evenements">Événements</a>
+      <a href="#media">TPS Média</a>
+      <a href="#musique">TPS Musique</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <!-- Accueil / Hero -->
+  <section id="accueil" class="hero">
+    <div class="card pad">
+      <span class="pill">Bienvenue • Communauté</span>
+      <h1>Semer la prière, récolter des vies transformées.</h1>
+      <p class="muted">Slogan/vision, valeurs et mission. Texte court pour expliquer la TPS et inviter à participer aux rencontres, en ligne et sur place.</p>
+      <div style="display:flex;gap:10px;margin-top:10px">
+        <a class="btn" href="#evenements">Voir les prochains événements</a>
+        <a class="btn alt" href="#dons">Soutenir l'œuvre</a>
+      </div>
+      <div class="chips" style="margin-top:14px">
+        <span class="tag">Présence en ligne</span>
+        <span class="tag">Accueil nouveaux</span>
+        <span class="tag">Formation bénévoles</span>
+      </div>
+    </div>
+    <div class="card pad">
+      <h2>Infos pratiques</h2>
+      <ul class="list">
+        <li><strong>Adresse :</strong> <span class="muted">(à compléter)</span></li>
+        <li><strong>Horaires :</strong> <span class="muted">(à compléter)</span></li>
+        <li><strong>Réseaux sociaux :</strong> <a href="#">Instagram</a> · <a href="#">YouTube</a> · <a href="#">Facebook</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Présentation TPS -->
+  <section id="tps" class="section">
+    <div class="two-col">
+      <div class="card pad">
+        <h2>La TPS — Qui sommes-nous ?</h2>
+        <p>Présentation courte : histoire, vision(s) et mission(s) de la TPS, avec un appel clair à rejoindre la communauté.</p>
+        <ul class="list">
+          <li>Valeurs : foi, service, excellence, compassion.</li>
+          <li>Objectifs : renforcer la cohésion, améliorer la communication, développer un guide de formation des bénévoles.</li>
+        </ul>
+      </div>
+      <div class="card pad">
+        <h2>Nos axes 2025</h2>
+        <ul class="list">
+          <li>Présence en ligne renforcée</li>
+          <li>Événements pour dynamiser la vie de l'église</li>
+          <li>Meilleur accueil des nouveaux arrivants</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leaders -->
+  <section id="leaders" class="section">
+    <div class="grid cols-2">
+      <div class="card pad">
+        <h2>La Prophétesse</h2>
+        <p>Bio courte et photo (à ajouter). Message de bienvenue, parcours et cœur pour la TPS.</p>
+      </div>
+      <div class="card pad">
+        <h2>Le Pasteur</h2>
+        <p>Bio courte et photo (à ajouter). Vision pastorale, enseignements et implication.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Équipe exécutive -->
+  <section id="equipe" class="section">
+    <div class="card pad">
+      <h2>Équipe exécutive</h2>
+      <div class="grid cols-3">
+        <div class="card pad"><strong>Nom Prénom</strong><p class="muted">Rôle</p></div>
+        <div class="card pad"><strong>Nom Prénom</strong><p class="muted">Rôle</p></div>
+        <div class="card pad"><strong>Nom Prénom</strong><p class="muted">Rôle</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Départements & formulaire -->
+  <section id="departements" class="section">
+    <div class="two-col">
+      <div class="card pad">
+        <h2>Servir dans un département</h2>
+        <p class="muted">Choisissez un département et laissez vos coordonnées. (Le traitement se fait par e‑mail simple pour rester 100% gratuit.)</p>
+        <form id="serve-form">
+          <label>Département
+            <select name="departement" required>
+              <option value="Accueil">Accueil</option>
+              <option value="Médias">Médias</option>
+              <option value="Louange">Louange</option>
+              <option value="Intercession">Intercession</option>
+              <option value="Jeunesse">Jeunesse</option>
+            </select>
+          </label>
+          <label>Nom complet
+            <input name="nom" placeholder="Votre nom" required />
+          </label>
+          <label>Email
+            <input name="email" type="email" placeholder="votre@email.com" required />
+          </label>
+          <label>Message (optionnel)
+            <textarea name="message" rows="4" placeholder="Dites-nous en plus…"></textarea>
+          </label>
+          <button class="btn" type="submit">Envoyer la demande</button>
+          <p id="serve-msg" class="muted"></p>
+        </form>
+      </div>
+      <div class="card pad">
+        <h2>Besoins actuels</h2>
+        <ul class="list">
+          <li>Cadreurs/monteurs pour TPS Média</li>
+          <li>Choristes et musiciens</li>
+          <li>Hôtesses/Accueil nouveaux</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dons -->
+  <section id="dons" class="section">
+    <div class="card pad">
+      <h2>Soutenir la TPS</h2>
+      <p>Dîmes, offrandes et partenariats. Pour rester entièrement gratuit côté site, nous listons des options simples :</p>
+      <ul class="list">
+        <li><strong>Virement bancaire :</strong> <span class="muted">(IBAN à indiquer)</span></li>
+        <li><strong>PayPal / Lydia / HelloAsso :</strong> <span class="muted">(lien à indiquer si disponible)</span></li>
+      </ul>
+      <div class="grid cols-2" style="margin-top:12px">
+        <div>
+          <h3>Maison de Prière — Objectif</h3>
+          <div class="progress" aria-label="Progression des dons">
+            <span id="progress-bar" style="width:0"></span>
+          </div>
+          <p class="muted"><span id="progress-text">0%</span> atteints — <span id="progress-raised">0</span> / <span id="progress-goal">10000</span> €</p>
+        </div>
+        <div>
+          <label>Mettre à jour la progression (admin)
+            <div class="grid">
+              <input type="number" id="raised" placeholder="Montant reçu (€)" value="2500" />
+              <input type="number" id="goal" placeholder="Objectif (€)" value="10000" />
+              <button class="btn alt" id="update-progress" type="button">Mettre à jour</button>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maison de Prière (section dédiée) -->
+  <section id="maison" class="section">
+    <div class="two-col">
+      <div class="card pad">
+        <h2>Maison de Prière</h2>
+        <p>Présentation de la vision et du projet. Ajoutez un court « spot » (lien YouTube) ci‑dessous.</p>
+        <div class="media"><em>Intégrez une vidéo YouTube ici</em></div>
+      </div>
+      <div class="card pad">
+        <h2>Comment participer ?</h2>
+        <ul class="list">
+          <li>Partagez le projet autour de vous</li>
+          <li>Donnez selon votre cœur</li>
+          <li>Priez régulièrement pour l'avancée</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Événements / Actualités / Programmes -->
+  <section id="evenements" class="section">
+    <div class="card pad">
+      <h2>Événements & Programmes</h2>
+      <div class="grid cols-3">
+        <div class="card pad">
+          <strong>Intitulé de l'événement</strong>
+          <p class="muted">Date – Lieu</p>
+          <a class="btn alt" href="#">Détails</a>
+        </div>
+        <div class="card pad">
+          <strong>Intitulé de l'événement</strong>
+          <p class="muted">Date – Lieu</p>
+          <a class="btn alt" href="#">Détails</a>
+        </div>
+        <div class="card pad">
+          <strong>Intitulé de l'événement</strong>
+          <p class="muted">Date – Lieu</p>
+          <a class="btn alt" href="#">Détails</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop (placeholder) -->
+  <section id="shop" class="section">
+    <div class="card pad">
+      <h2>Shop (à venir)</h2>
+      <p class="muted">Préparez ici vos futurs goodies. Quand vous serez prêt, vous pourrez pointer vers un service gratuit/peu cher (par ex. Print‑on‑Demand qui gère le stock).</p>
+    </div>
+  </section>
+
+  <!-- TPS Média -->
+  <section id="media" class="section">
+    <div class="card pad">
+      <h2>TPS Média</h2>
+      <div class="media-grid">
+        <div class="media">Vidéo culte #1</div>
+        <div class="media">Vidéo culte #2</div>
+        <div class="media">Replay enseignement</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TPS Musique -->
+  <section id="musique" class="section">
+    <div class="card pad">
+      <h2>TPS Musique</h2>
+      <p>Intégrez un lecteur (YouTube/Spotify) et mettez en avant les albums de la Prophétesse et du Pasteur.</p>
+      <div class="media">Lecteur audio / playlist</div>
+    </div>
+  </section>
+
+  <!-- Contact / Nouveaux arrivants / Prières -->
+  <section id="contact" class="section">
+    <div class="two-col">
+      <div class="card pad">
+        <h2>Nouveaux arrivants</h2>
+        <p class="muted">Laissez vos coordonnées pour être bien accueillis.</p>
+        <form id="newcomer-form">
+          <label>Nom complet
+            <input name="nom" placeholder="Votre nom" required />
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="votre@email.com" required />
+          </label>
+          <label>Téléphone (optionnel)
+            <input name="tel" placeholder="06…" />
+          </label>
+          <button class="btn" type="submit">Je me présente</button>
+          <p id="newcomer-msg" class="muted"></p>
+        </form>
+      </div>
+      <div class="card pad">
+        <h2>Demande de prière / Témoignage</h2>
+        <form id="prayer-form">
+          <label>Nom (optionnel)
+            <input name="nom" placeholder="Votre nom" />
+          </label>
+          <label>Votre message
+            <textarea name="message" rows="4" placeholder="Sujet de prière ou témoignage…" required></textarea>
+          </label>
+          <button class="btn" type="submit">Envoyer</button>
+          <p id="prayer-msg" class="muted"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container footer">
+    <div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+      <span>© <span id="year"></span> TPS — Tour de Prière Semeur</span>
+      <span class="muted">Site gratuit déployé sur Vercel • Code source sur GitHub</span>
+    </div>
+  </footer>
+</main>
+
+<script>
+  // Année automatique
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Progression dons (modifiable côté admin dans la page)
+  const bar = document.getElementById('progress-bar');
+  const txt = document.getElementById('progress-text');
+  const raisedEl = document.getElementById('progress-raised');
+  const goalEl = document.getElementById('progress-goal');
+  function renderProgress(raised, goal){
+    const pct = Math.max(0, Math.min(100, Math.round((raised/goal)*100)));
+    bar.style.width = pct + '%';
+    txt.textContent = pct + '%';
+    raisedEl.textContent = new Intl.NumberFormat('fr-FR').format(raised);
+    goalEl.textContent = new Intl.NumberFormat('fr-FR').format(goal);
+  }
+  document.getElementById('update-progress').addEventListener('click', ()=>{
+    const raised = parseFloat(document.getElementById('raised').value||0);
+    const goal = parseFloat(document.getElementById('goal').value||1);
+    renderProgress(raised, goal);
+    localStorage.setItem('tps-progress', JSON.stringify({raised, goal}));
+  });
+  // Restaurer depuis localStorage (simple et gratuit)
+  const saved = localStorage.getItem('tps-progress');
+  if(saved){
+    const {raised, goal} = JSON.parse(saved); renderProgress(raised, goal);
+    document.getElementById('raised').value = raised; document.getElementById('goal').value = goal;
+  } else { renderProgress(2500, 10000); }
+
+  // Envoi des formulaires par e‑mail via mailto: (zéro backend, 100% gratuit)
+  function wireForm(formId, to){
+    const form = document.getElementById(formId);
+    const msg = document.getElementById(formId.replace('-form','-msg'));
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      const body = [...data.entries()].map(([k,v])=> `${k}: ${v}`).join('%0D%0A');
+      const subject = encodeURIComponent('Formulaire TPS — ' + formId);
+      const mail = `mailto:${to}?subject=${subject}&body=${body}`;
+      window.location.href = mail;
+      msg.textContent = "Votre application d'e‑mail va s'ouvrir pour finaliser l'envoi.";
+    });
+  }
+  // Remplacez les adresses ci-dessous par la vôtre
+  wireForm('serve-form', 'contact@exemple.com');
+  wireForm('newcomer-form', 'contact@exemple.com');
+  wireForm('prayer-form', 'contact@exemple.com');
+</script>
+</body>
+</html>
